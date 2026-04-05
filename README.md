@@ -59,7 +59,7 @@ Follow these steps to run the project locally:
 
 ```bash
 git clone https://github.com/your-username/laravel-practice-app.git
-cd laravel-concepts-lab
+cd laravel-practice-app
 
 composer install
 cp .env.example .env

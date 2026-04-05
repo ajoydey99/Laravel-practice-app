@@ -1,0 +1,198 @@
+body {
+    background: #f5f6fa;
+}
+
+/* For login and registration page*/
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f6fa;
+}
+
+/*  sidebar panel */
+.sidebar {
+    height: 100vh;
+    background: #212529;
+    color: white;
+    position: fixed;
+    width: 220px;
+}
+
+.sidebar a {
+    color: #adb5bd;
+    text-decoration: none;
+    display: block;
+    padding: 12px 20px;
+}
+
+.sidebar a:hover {
+    background: #343a40;
+    color: #fff;
+}
+
+.active {
+    background-color: #343a40;
+}
+
+/* dashboard content area*/
+.content {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+}
+
+/* index page styles */
+.table th {
+    white-space: nowrap;
+}
+
+.action-icons i {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.action-icons i:last-child {
+    margin-right: 0;
+}
+
+/* create customer page styles */
+
+.page-title {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+.btn-create {
+    background-color: #212529;
+    color: #fff;
+    font-size: 15px;
+    padding: 6px 14px;
+}
+
+.btn-create:hover {
+    background-color: #4d565e;
+    color: #fff;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.form-section {
+    padding: 20px;
+}
+
+/* profile page styles */
+
+.profile-card {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e6e6e6;
+}
+
+.profile-header {
+    height: 160px;
+    background: radial-gradient(circle at top right, #0d1b2a, #020b1c);
+    position: relative;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+}
+
+.profile-header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(#ffffff22 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+}
+
+.profile-header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 3px solid #fff;
+}
+
+.profile-mypanel {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.profile-welcome {
+    font-size: 15px;
+    opacity: 0.8;
+}
+
+.details-card {
+    background: #f8fbfa;
+    padding: 25px;
+}
+
+.details-table {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+}
+
+.details-table table {
+    margin: 0;
+}
+
+.details-table td {
+    padding: 12px 16px;
+    vertical-align: top;
+}
+
+.details-table td:first-child {
+    width: 30%;
+    font-weight: 500;
+    background: #fcfcfc;
+}
+
+/* edit page styles */
+
+.edit-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10%;
+    border: 4px solid #fff;
+    transition: 0.3s;
+}
+
+.edit-img:hover {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
+
+/* toaster notification */
+#toast-container.toast-top-left {
+    top: 10px;
+    left: 250px;
+    right: auto;
+}

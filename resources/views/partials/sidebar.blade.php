@@ -44,8 +44,4 @@
         Profile
     </a>
 
-    <a href="#">
-        <i class="bi bi-box-arrow-right me-2"></i>
-        Logout
-    </a>
 </div>

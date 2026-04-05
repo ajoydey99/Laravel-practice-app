@@ -6,7 +6,6 @@ use Illuminate\Support\Str;
 
 class ImageService
 {
-    protected $defaultImage;
 
     public function __construct()
     {
@@ -27,7 +26,12 @@ class ImageService
     public function deleteFromStorage($image = null)
     {
         if ($image !== $this->defaultImage) {
-            File::delete(public_path($image));
+            $path = public_path($image);
+
+            if (File::exists($path)) {
+                File::delete(public_path($$path));
+            }
+
         }
 
     }

@@ -29,8 +29,6 @@ class CustomerController extends Controller
 
     public function store(CustomerStoreRequest $request)
     {
-        $customer = new Customer();
-
         $customer = Customer::create($request->only([
             'first_name', 'last_name', 'email', 'phone', 'account_no', 'about',
         ]));
@@ -66,7 +64,7 @@ class CustomerController extends Controller
             // assign new image file
             $image = $request->file('image');
             // delete old profile image from storage
-            $this->imageService->deleteFromStorage($image);
+            $this->imageService->deleteFromStorage($customer->image);
             // assign new file path and save file in storage
             $customer->image = $this->imageService->generateFilePath($image);
         }

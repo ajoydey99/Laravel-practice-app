@@ -31,11 +31,6 @@
         Update
     </a>
 
-    <a href="#">
-        <i class="bi bi-trash me-2"></i>
-        Delete
-    </a>
-
     <a href="#" @class([
         'd-none' => !$showRouteIsActive,
         'active' => $showRouteIsActive,

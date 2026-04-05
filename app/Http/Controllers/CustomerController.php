@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CustomerStoreRequest;
 use App\Models\Customer;
 use App\Services\ImageService;
+use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
@@ -15,9 +16,17 @@ class CustomerController extends Controller
         $this->imageService = $imageService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $customers = Customer::paginate(10);
+        $search = trim($request->input('search'));
+        // local query scope
+        if ($request->has('search') && $search === '') {
+            return redirect()->route('customers.index')->with(
+                'status-info', 'Search field cannot be empty'
+            );
+        }
+
+        $customers = Customer::search($search)->paginate(10);
 
         return view('customer.index', compact('customers'));
     }

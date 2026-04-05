@@ -196,3 +196,7 @@ label {
     left: 250px;
     right: auto;
 }
+
+.toast-message {
+    font-size: 15px;
+}

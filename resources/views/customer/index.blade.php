@@ -5,15 +5,9 @@
  @section('content')
      <div class="container">
 
-         {{-- @if (session('status'))
-             <div class="alert alert-success" id="successMessage">
-                 {{ session('status') }}
-             </div>
-         @endif --}}
-
-
          <div class="card shadow p-3">
              <!-- Top Controls -->
+
              <div class="d-flex flex-wrap gap-2 justify-content-between mb-3">
                  {{-- <a href="{{ route('customers.create') }}" class="btn btn-primary">
                      <i class="bi bi-plus-lg"></i> Create Customer
@@ -22,12 +16,17 @@
                  <h4>Customers</h4>
 
                  <div class="d-flex gap-2 w-50">
+                     @if (request('search'))
+                         <a href="{{ route('customers.index') }}" class="btn btn-secondary">
+                             Reset
+                         </a>
+                     @endif
                      <!-- Search Form -->
-                     <form action="" class="flex-grow-1">
+                     <form action="{{ route('customers.index') }}" method="GET" class="flex-grow-1">
                          <div class="input-group">
-                             <input type="text" class="form-control border-primary shadow-none"
-                                 placeholder="Search anything...">
-                             <button class="btn btn-primary">Search</button>
+                             <input type="text" name="search" class="form-control border-primary shadow-none"
+                                 placeholder="Search by name or email" required value="{{ request()->search }}">
+                             <button typ="submit" class="btn btn-primary">Search</button>
                          </div>
                      </form>
 
@@ -54,7 +53,7 @@
                          </tr>
                      </thead>
                      <tbody>
-                         @foreach ($customers as $customer)
+                         @forelse ($customers as $customer)
                              <tr>
                                  <td>{{ ($customers->currentPage() - 1) * $customers->perPage() + $loop->iteration }}</td>
                                  <td>{{ $customer->first_name }}</td>
@@ -81,7 +80,13 @@
                                      </form>
                                  </td>
                              </tr>
-                         @endforeach
+                         @empty
+                             <tr>
+                                 <td colspan="7" class="text-center text-muted">
+                                     No customers found
+                                 </td>
+                             </tr>
+                         @endforelse
                      </tbody>
                  </table>
 

@@ -31,10 +31,13 @@
                      </form>
 
                      <!-- Sort Dropdown -->
-                     <select class="form-select w-auto shadow-none border-primary">
-                         <option>Newest to Old</option>
-                         <option>Old to Newest</option>
-                     </select>
+                     <form action="{{ route('customers.index') }}" method="GET">
+                         <select class="form-select w-auto shadow-none border-primary" name="order"
+                             onchange="this.form.submit()">
+                             <option @selected(request()->order == 'desc') value="desc">Newest to Oldest</option>
+                             <option @selected(request()->order == 'asc') value="asc">Oldest to Newest</option>
+                         </select>
+                     </form>
                  </div>
              </div>
 

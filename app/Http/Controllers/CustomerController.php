@@ -26,7 +26,8 @@ class CustomerController extends Controller
             );
         }
 
-        $customers = Customer::search($search)->paginate(10);
+        $condition = $request->order == 'asc' ? 'ASC' : 'DESC';
+        $customers = Customer::search($search)->orderBy('id', $condition)->paginate(10);
 
         return view('customer.index', compact('customers'));
     }
